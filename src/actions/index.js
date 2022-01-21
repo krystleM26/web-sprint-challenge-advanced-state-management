@@ -5,20 +5,20 @@ export const FETCH_START = 'FETCH_START';
 export const ADD_SMURF = 'ADD_SMURF'
 
 
-export const fetchSmurfs = () => {
- 
+export const fetchSmurfs =() => (dispatch) => {
+    dispatch(fetchStart())
     axios.get('http://localhost:3333/smurfs')
         .then(resp => {
             console.log(resp)
         })
 }
 
-export const fetchFail = () => {
-    return ({type:FETCH_FAIL})
+export const fetchFail = (error) => {
+    return ({type:FETCH_FAIL, payload: error})
 }
 
-export const fetchSuccess = () => {
-    return({type:FETCH_SUCCESS})
+export const fetchSuccess = (smurfs) => {
+    return({type:FETCH_SUCCESS, payload: smurfs})
 }
 
 export const fetchStart = () => {
