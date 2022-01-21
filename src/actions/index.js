@@ -5,11 +5,15 @@ export const FETCH_START = 'FETCH_START';
 export const ADD_SMURF = 'ADD_SMURF'
 
 
+
 export const fetchSmurfs =() => (dispatch) => {
     dispatch(fetchStart())
     axios.get('http://localhost:3333/smurfs')
         .then(resp => {
-            console.log(resp)
+            dispatch(fetchSuccess(resp.data))
+        })
+        .catch(err => {
+            dispatch(fetchFail(err))
         })
 }
 
@@ -25,11 +29,11 @@ export const fetchStart = () => {
     return({type:FETCH_START})
 }
 
-export const addSmurf = () => {
-    return({type:ADD_SMURF}
-        // this will be a map
-        )
+export const addSmurf = (smurf) => {
+    return({type:ADD_SMURF, payload: smurf})
 }
+
+
 
 //Task List:
 //1. Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
