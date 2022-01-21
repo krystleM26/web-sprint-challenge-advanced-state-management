@@ -68,13 +68,13 @@ In this project, you will build the reducer, actions and basic redux connects to
   Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as necessary.**
 
   * [ x] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retrieve all smurfs from the api. Save the result of to our state and show an error if one is made.
-  * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
-  * [ ] Add a standard action that allows us to set the value of the error message slice of state.
+  * [ x] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
+  * [x ] Add a standard action that allows us to set the value of the error message slice of state.
   
 ### Complete App.js
   Connect component to the fetchSmurfs action.
   
-  * [ ] Connect the fetchSmurfs actions to the App component.
+  * [ x] Connect the fetchSmurfs actions to the App component.
   * [ ] Call the fetchSmurfs action when the component first loads.
 
 ### Complete components/SmurfList.js
@@ -111,10 +111,17 @@ In this project, you will build the reducer, actions and basic redux connects to
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
-1. What problem does the context API help solve?
+1. What problem does the context API help solve? 
+It solves the prop-drilling problem
 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+Actions: carries info called payload from the store that must have a type attribute to help user functions performance.
+
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
-
+Redux-thunk allows you to write action creators that return a function instead of an action. 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+While I like redux because it helps your move around the code to see what things are doing, I want to really grasp Context due to its simplicity and minimal need of extra files. 
+
+
