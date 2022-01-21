@@ -22,6 +22,8 @@ const SmurfList = ({ smurfs, isLoading, error, dispatch }) => {
     return <h1>Loading...</h1>
   }
 
+
+
   return (
     <div className="listContainer">
       {smurfs && smurfs.map((smurf) => <Smurf smurf={smurf} />)}
