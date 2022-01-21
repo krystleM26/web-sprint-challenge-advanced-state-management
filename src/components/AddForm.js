@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { addSmurf } from '../actions'
+import { addSmurf, setError } from '../actions'
 import { connect } from 'react-redux'
 import SmurfList from './SmurfList'
 
@@ -23,7 +23,7 @@ const AddForm = ({error, smurfs, dispatch}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (state.name === '' || state.position === '' || state.nickname === '') {
-      dispatch(state.error)
+      dispatch(setError('Fill Out Missing Fields'))
     } else {
         console.log(state);
       dispatch(addSmurf(state))
@@ -74,13 +74,13 @@ const AddForm = ({error, smurfs, dispatch}) => {
             id="description"
           />
         </div>
-        {state.error && (
+        {error && (
           <div
             data-testid="errorAlert"
             className="alert alert-danger"
             role="alert"
           >
-            Error: {state.error}
+            Error: {error}
           </div>
         )}
         <button>Submit Smurf</button>
@@ -90,7 +90,6 @@ const AddForm = ({error, smurfs, dispatch}) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
   return {
     error: state.error,
   }

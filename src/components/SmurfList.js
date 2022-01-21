@@ -26,7 +26,7 @@ const SmurfList = ({ smurfs, isLoading, error, dispatch }) => {
 
   return (
     <div className="listContainer">
-      {smurfs && smurfs.map((smurf) => <Smurf smurf={smurf} />)}
+      {smurfs && smurfs.map((smurf,index) => <Smurf key={index} smurf={smurf} />)}
     </div>
   )
 }
